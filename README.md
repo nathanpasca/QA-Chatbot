@@ -1,5 +1,5 @@
 # NLP Question-Answering Chatbot
-A Python-based question-answering (QA) chatbot leveraging the `distilbert-base-cased-distilled-squad` model from Hugging Face's Transformers library. This project was developed as part of a Natural Language Processing course assignment to demonstrate natural language processing (NLP) techniques for answering questions based on a given context.
+A Python-based question-answering (QA) chatbot leveraging the `distilbert-base-cased-distilled-squad` model from Hugging Face's Transformers library. This project was developed as part of a Natural Language Processing course quiz to demonstrate natural language processing (NLP) techniques for answering questions based on a given context.
 
 ## Prerequisites
 Before running this system, make sure you have:
