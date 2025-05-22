@@ -58,7 +58,7 @@ Goodbye
 - The system is designed for single-turn or simple multi-turn conversations. For production use, additional dialogue management and error handling may be needed.
 
 ## Academic Disclaimer
-This project was developed as part of an academic assignment in Machine Learning. While it demonstrates NLP question-answering concepts, it may require additional features, robustness, and optimization for production use.
+This project was developed as part of an academic course quiz in Natural Language Processing. While it demonstrates NLP question-answering concepts, it may require additional features, robustness, and optimization for production use.
 
 ## Acknowledgments
 - [Hugging Face Transformers](https://huggingface.co/transformers/)
