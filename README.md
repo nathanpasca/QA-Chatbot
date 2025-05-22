@@ -1,85 +1,66 @@
-# NLP MIT Quiz - Context-Based QA Chatbot with Memory
+# NLP Question-Answering Chatbot
+A Python-based question-answering (QA) chatbot leveraging the `distilbert-base-cased-distilled-squad` model from Hugging Face's Transformers library. This project was developed as part of a Natural Language Processing course assignment to demonstrate natural language processing (NLP) techniques for answering questions based on a given context.
 
-This project implements a context-based Question Answering Chatbot with conversation memory as required for the NLP MIT Quiz. The chatbot uses Hugging Face's Transformers library to provide answers based on a given context document.
-
-## Features
-
-✅ **Basic QA Function** - Takes a question and context, returns the best answer found in the context
-✅ **Interactive Chatbot** - Provides a user interface to interact with the chatbot in a loop
-✅ **Conversation Memory** - Stores previous interactions and resolves pronoun references
-
-## Requirements
-
-- Python 3.7+
-- Transformers
-- PyTorch
-- NLTK
+## Prerequisites
+Before running this system, make sure you have:
+- Python 3.9+
+- A working internet connection to download the pre-trained model and tokenizer
+- Required Python libraries (listed below)
 
 ## Installation
-
-1. Install the required packages:
-
+1. Clone the repository:
+```bash
+git clone https://github.com/nathanpasca/nlp-qa-chatbot
+cd nlp-qa-chatbot
 ```
+
+2. Install dependencies:
+```bash
 pip install transformers torch nltk
 ```
 
-## How to Run
-
-1. Save the provided Python code to a file named `qa_chatbot.py`
-2. Download the context document and save it to your local machine
-3. Update the code to use your local file path or paste the context directly into the code
-4. Run the script:
-
-```
-python qa_chatbot.py
-```
+3. Download required NLTK data:
+- The script automatically downloads the `punkt` and `punkt_tab` NLTK packages when run for the first time.
 
 ## Usage
-
-1. When prompted, enter your questions about the document
-2. The chatbot will provide answers based on the context
-3. You can use pronouns (it, they, that) to refer to previously mentioned entities
-4. Type 'exit' to quit the program
-5. Type 'clear' to reset the conversation memory
-
-## Implementation Details
-
-### Part 1: Basic QA Function
-
-The `answer_question()` function:
-- Takes a question (string) and the context
-- Uses a pre-trained QA model from HuggingFace Transformers
-- Returns the best answer found in the context
-
-### Part 2: Chatbot Interaction Layer
-
-The `run_chatbot()` function:
-- Prompts the user for input in a loop
-- Answers questions based on the loaded context
-- Provides an option to exit by typing 'exit'
-
-### Part 3: Chatbot with Memory (40 points)
-
-The `resolve_pronouns()` function:
-- Implements conversation memory using a list of dictionaries
-- Detects pronoun references (it, they, that model, etc.)
-- Resolves them based on previous conversation turns
-
-## Example Interactions
-
+Run the script:
+```bash
+python3 nlp_chatbot.py
 ```
-Welcome to the Context-Based QA Chatbot with Memory!
-==================================================
-• Ask questions about the document
-• The chatbot can remember previous questions
-• Type 'exit' to quit
-• Type 'clear' to clear conversation memory
-==================================================
 
-You: What is the main topic of this document?
-Bot: [Answer based on context]
+The system will:
+- Load the `distilbert-base-cased-distilled-squad` model and tokenizer for question answering
+- Use a predefined context about NLP (included in the script) to answer user questions
+- Support pronoun resolution to handle questions with pronouns (e.g., "What does it do?") by referencing previous interactions
+- Maintain a short memory of up to 5 previous question-answer pairs for context-aware responses
 
-You: Who created it?
-(Resolving pronouns: 'Who created it?' → 'Who created document?')
-Bot: [Answer based on context with pronoun resolution]
+Example interaction:
 ```
+NLP QA Chatbot (type 'exit' to quit)
+
+You: What is NLP?
+Bot: Natural Language Processing
+
+You: What does it do?
+(Resolving pronouns: 'What does it do?' → 'What does Natural Language Processing do?')
+Bot: returns a precise answer drawn from a given context or dataset
+
+You: Give examples of NLP applications
+Bot: machine translation systems like Google Translate
+
+You: exit
+Goodbye
+```
+
+## Note
+- The chatbot uses a predefined context about NLP. To use a different context, modify the `context` variable in the script or provide a file path to a custom context file.
+- Pronoun resolution is basic and relies on the last 3 interactions to identify relevant entities. It may not handle complex pronoun references accurately.
+- The system is designed for single-turn or simple multi-turn conversations. For production use, additional dialogue management and error handling may be needed.
+
+## Academic Disclaimer
+This project was developed as part of an academic assignment in Machine Learning. While it demonstrates NLP question-answering concepts, it may require additional features, robustness, and optimization for production use.
+
+## Acknowledgments
+- [Hugging Face Transformers](https://huggingface.co/transformers/)
+- [NLTK](https://www.nltk.org/)
+- [PyTorch](https://pytorch.org/)
